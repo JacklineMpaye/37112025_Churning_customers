@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
-import os
+
 
 
 st.set_page_config(
@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 # Load the model and scaler
-
+import os
 
 model_path = 'model.pkl'
 
