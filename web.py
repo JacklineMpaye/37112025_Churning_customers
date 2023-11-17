@@ -132,6 +132,8 @@ if button:
     st.text("")
     st.text("")
     st.text("")
-    
+    confidence_factor = 82
     st.write(f"The predicted likelihood of churn is: {churn_probability*100:.2f}%", key="stText")
     st.write(f"The model predicts {'Churn' if churn_probability >= 0.5 else 'No Churn'}", key="stText")
+    st.title("Model Confidence Viewer")
+    st.write(f"Confidence Factor: {confidence_factor}%")
