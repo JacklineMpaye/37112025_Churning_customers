@@ -19,9 +19,7 @@ script_directory = os.path.dirname(os.path.realpath(__file__))
 model_path = os.path.join(script_directory, 'model.pkl')
 scaler_path = os.path.join(script_directory, 'scaler.pkl'
 
-# Print debugging information
-print("Script Directory:", script_directory)
-print("Scaler Path:", scaler_path)
+
 
 # Check if the file exists
 if os.path.exists(scaler_path):
