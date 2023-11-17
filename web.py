@@ -12,20 +12,11 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 # Load the model and scaler
-
 script_directory = os.path.dirname(os.path.realpath(__file__))
 
 # Specify the paths to the model and scaler files using the script_directory
 model_path = os.path.join(script_directory, 'model.pkl')
 scaler_path = os.path.join(script_directory, 'scaler.pkl'
-
-
-
-
-
-
-# Create a Streamlit app
-
 st.title("Customer Churn Prediction App")
 st.write("Enter customer attributes to predict the likelihood of churn.")
 st.write("")
