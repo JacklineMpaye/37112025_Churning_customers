@@ -13,12 +13,19 @@ st.set_page_config(
 # Load the model and scaler
 
 
-model = pickle.load(open('model.pkl', 'rb'))
-import os
+model_path = 'model.pkl'
 
-
-# Get the script directory
-script_directory = os.path.dirname(os.path.abspath(__file__))
+# Check if the file exists
+if not os.path.isfile(model_path):
+    print(f"Error: File '{model_path}' not found.")
+else:
+    try:
+        # Open the file in binary mode and load the model
+        with open(model_path, 'rb') as model_file:
+            model = pickle.load(model_file)
+        print("Model loaded successfully.")
+    except Exception as e:
+        print(f"Error loading the model: {e}")
 
 # Specify the full path to the scaler.pkl file
 scaler_path = os.path.join(script_directory, 'scaler.pkl')
