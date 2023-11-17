@@ -21,16 +21,7 @@ scaler_path = os.path.join(script_directory, 'scaler.pkl'
 
 
 
-# Check if the file exists
-if os.path.exists(scaler_path):
-    # Load the scaler model
-    with open(scaler_path, 'rb') as scaler_file:
-        scaler = pickle.load(scaler_file)
-else:
-    print(f"Error: File not found at path {scaler_path}")
-    scaler = None  # Set scaler to None or handle the error as appropriate
 
-# Now you can use the 'scaler' object as needed in the rest of your code
 
 
 # Create a Streamlit app
