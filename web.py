@@ -17,6 +17,10 @@ script_directory = os.path.dirname(os.path.realpath(__file__))
 # Specify the paths to the model and scaler files using the script_directory
 model_path = os.path.join(script_directory, 'model.pkl')
 scaler_path = os.path.join(script_directory, 'scaler.pkl')
+model = pickle.load(open(model_path, 'rb'))
+
+# Load the scaler
+scaler = pickle.load(open(scaler_path, 'rb'))
 st.title("Customer Churn Prediction App")
 st.write("Enter customer attributes to predict the likelihood of churn.")
 st.write("")
