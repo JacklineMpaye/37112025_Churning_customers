@@ -4,7 +4,6 @@ import pickle
 import os
 
 
-
 st.set_page_config(
     page_title="Customer Churn Prediction",
     page_icon="📉",
@@ -12,18 +11,48 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 # Load the model and scaler
-script_directory = os.path.dirname(os.path.realpath(__file__))
 
-# Specify the paths to the model and scaler files using the script_directory
-model_path = os.path.join(script_directory, 'model.pkl')
+
+model_path = 'model.pkl'
+
+# Check if the file exists
+if not os.path.isfile(model_path):
+    print(f"Error: File '{model_path}' not found.")
+else:
+    try:
+        # Open the file in binary mode and load the model
+        with open(model_path, 'rb') as model_file:
+            model = pickle.load(model_file)
+        print("Model loaded successfully.")
+    except Exception as e:
+        print(f"Error loading the model: {e}")
+
+
+
+# Get the script directory
+script_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Specify the full path to the scaler.pkl file
 scaler_path = os.path.join(script_directory, 'scaler.pkl')
 
-print("Model File Exists:", os.path.exists(model_path))
-print("Scaler File Exists:", os.path.exists(scaler_path))
-model = pickle.load(open(model_path, 'rb'))
+# Print debugging information
+print("Script Directory:", script_directory)
+print("Scaler Path:", scaler_path)
 
-# Load the scaler
-scaler = pickle.load(open(scaler_path, 'rb'))
+# Check if the file exists
+if os.path.exists(scaler_path):
+    # Load the scaler model
+    with open(scaler_path, 'rb') as scaler_file:
+        scaler = pickle.load(scaler_file)
+else:
+    print(f"Error: File not found at path {scaler_path}")
+    scaler = None  # Set scaler to None or handle the error as appropriate
+
+# Now you can use the 'scaler' object as needed in the rest of your code
+
+
+# Create a Streamlit app
+
 st.title("Customer Churn Prediction App")
 st.write("Enter customer attributes to predict the likelihood of churn.")
 st.write("")
