@@ -17,6 +17,9 @@ script_directory = os.path.dirname(os.path.realpath(__file__))
 # Specify the paths to the model and scaler files using the script_directory
 model_path = os.path.join(script_directory, 'model.pkl')
 scaler_path = os.path.join(script_directory, 'scaler.pkl')
+
+print("Model File Exists:", os.path.exists(model_path))
+print("Scaler File Exists:", os.path.exists(scaler_path))
 model = pickle.load(open(model_path, 'rb'))
 
 # Load the scaler
